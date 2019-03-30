@@ -1,5 +1,16 @@
-const Shooter = require('./shooter');
+const Shooter = require('../lib');
 const params = require('./params');
+
+const shooter = new Shooter();
+
+shooter.setTimeout(180000);
+shooter.setError(onError);
+
+shooter.aim(15, 'get', 'https://www.siteground.com/');
+
+shooter.aim(15, 'post', 'http://localhost:8002/api/v1/cbs/account', params.searchAccountParams);
+
+shooter.shoot(afterShoot);
 
 const onError = function (error) {
     if (error.response && error.response.status != '400') {
@@ -30,21 +41,3 @@ const afterShoot = data => {
     }, {});
     console.log(grouped);
 };
-
-const shooter = new Shooter();
-shooter.setTimeout(180000);
-shooter.setError(onError);
-
-shooter.aim(10, 'get', 'http://localhost:8002/api/v1/cbs/dictionary/LOCAL.TABLE?dictionaryFields=VETTING.TABLE&dictionarySelection=@ID%20EQ%20AMR.MKT.CHANNEL');
-
-shooter.aim(15, 'post', 'http://localhost:8002/api/v1/cbs/account', params.searchAccountParams);
-shooter.aim(15, 'post', 'http://localhost:8002/api/v1/cbs/account', Object.assign({}, params.searchAccountParams, {
-    customerId: '1655662'
-}));
-shooter.aim(15, 'post', 'http://localhost:8002/api/v1/cbs/account', Object.assign({}, params.searchAccountParams, {
-    customerId: '1655665'
-}));
-
-shooter.aim(10, 'post', 'http://localhost:8002/api/v1/cbs/account/create', params.createAccountParams);
-
-shooter.shoot(afterShoot);

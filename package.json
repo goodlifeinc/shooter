@@ -1,7 +1,26 @@
 {
-  "name": "shooter",
-  "version": "",
+  "name": "@genata/shooter",
+  "description": "Simple stress load shooter",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "goodlifeinc/shooter",
+  "keywords": [
+    "stress",
+    "load",
+    "shooter",
+    "backend",
+    "testing",
+    "automation"
+  ],
   "dependencies": {
     "axios": "^0.18.0"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^11.12.2",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "build": "rimraf ./lib && tsc"
+  },
+  "main": "lib/index.js"
 }
