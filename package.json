@@ -10,7 +10,9 @@
     "shooter",
     "backend",
     "testing",
-    "automation"
+    "automation",
+    "rest",
+    "api"
   ],
   "dependencies": {
     "axios": "^0.18.0"
