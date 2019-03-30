@@ -63,4 +63,12 @@ const afterShoot = data => {
 * `setTimeout(Number)` - in mileseconds
 * `setError(fn)` - callback when request returns error(4xx, 5xx HTTP Status codes)
 * `setSucecss(fn)` - callback when request returns success(2xx HTTP Status codes)
-* `shoot(fn)` - method that performs all "aimed" operations. It accepts optional callback function. After shoot() is performed same instance of `Shooter` can be reused for new aims.
+* `shoot(fn)` - method that performs all "aimed" operations. It accepts optional callback function. After `shoot()` is performed same instance of `Shooter` can be reused for new aims.
+
+## Backlog features / TODOs
+
+* when aiming -- use {} options object
+* define timeout between requests
+* in options. give ability to save something in {instance}.saved with {k: 'cookie', v: value} structure
+* provide options.inject to use something saved in request, with some kind of selector pattern. e.g. {headers: { cookie: 'cookie'}}
+* provide methods to manually remove or override saved
